@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pakorn is an IT System Administrator and Software Developer in Bangkok, Thailand, building enterprise infrastructure tools and web products.">
+  <meta name="theme-color" content="#08110f">
+  <meta property="og:title" content="Pakorn | IT System Administrator & Software Developer">
+  <meta property="og:description" content="Enterprise IT infrastructure, ASP.NET Core, Blazor, React, TypeScript, and AI-assisted development.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://github.com/pakorn269.png">
+  <title>Pakorn | IT System Administrator & Software Developer</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%2308110f'/%3E%3Ccircle cx='32' cy='32' r='25' fill='none' stroke='%23bff252' stroke-width='4'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Verdana' font-size='18' font-weight='700' fill='%23f6f1e8'%3EPK%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #f6f1e8;
+      --muted: #b7beb2;
+      --paper: #fff6e1;
+      --night: #08110f;
+      --panel: #101c18;
+      --panel-2: #162820;
+      --line: rgba(246, 241, 232, 0.16);
+      --cyan: #4fd7d1;
+      --lime: #bff252;
+      --amber: #f4b942;
+      --tomato: #ff6b4a;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+      color-scheme: dark;
+      font-family: "Afacad Flux", "Segoe UI", sans-serif;
+      line-height: 1.5;
+      background: var(--night);
+      color: var(--ink);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 78% 12%, rgba(79, 215, 209, 0.22), transparent 31rem),
+        radial-gradient(circle at 12% 28%, rgba(191, 242, 82, 0.12), transparent 24rem),
+        linear-gradient(135deg, #08110f 0%, #0b1614 44%, #101814 100%);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.12;
+      background-image:
+        linear-gradient(rgba(246, 241, 232, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(246, 241, 232, 0.13) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.16;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.44'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .site-shell {
+      width: min(1160px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      transform: translateY(-140%);
+      background: var(--paper);
+      color: #101814;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      z-index: 30;
+      font-weight: 700;
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(22px);
+      background: rgba(8, 17, 15, 0.78);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border: 1px solid rgba(191, 242, 82, 0.48);
+      background: linear-gradient(135deg, rgba(191, 242, 82, 0.16), rgba(79, 215, 209, 0.12));
+      border-radius: 50%;
+      color: var(--lime);
+      box-shadow: 0 0 24px rgba(191, 242, 82, 0.16);
+    }
+
+    .brand span:last-child {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.35rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-links a {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 700;
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.08);
+      outline: none;
+    }
+
+    .nav-cta,
+    .button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0 1.05rem;
+      border: 1px solid rgba(191, 242, 82, 0.48);
+      border-radius: 999px;
+      background: var(--lime);
+      color: #11180e;
+      font-weight: 800;
+      box-shadow: 0 16px 38px rgba(191, 242, 82, 0.18);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .nav-cta:hover,
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 48px rgba(191, 242, 82, 0.28);
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      padding: clamp(4rem, 7vw, 7rem) 0 clamp(2.5rem, 5vw, 4.5rem);
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 8% -18% auto auto;
+      width: min(55vw, 660px);
+      aspect-ratio: 1;
+      background:
+        linear-gradient(135deg, rgba(8, 17, 15, 0.08), rgba(8, 17, 15, 0.82)),
+        url("https://github.com/pakorn269.png");
+      background-size: cover;
+      background-position: center;
+      border-radius: 42% 58% 56% 44% / 42% 40% 60% 58%;
+      filter: saturate(0.85) contrast(1.08);
+      opacity: 0.38;
+      z-index: -1;
+      box-shadow: inset 0 0 120px rgba(8, 17, 15, 0.88), 0 0 0 1px rgba(246, 241, 232, 0.08);
+      animation: portraitFloat 9s ease-in-out infinite;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.98fr) minmax(280px, 0.58fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--lime);
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 22px var(--lime);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 880px;
+      margin-top: 1rem;
+      font-size: clamp(4.2rem, 13vw, 11.5rem);
+      text-wrap: balance;
+    }
+
+    .hero-title-accent {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(246, 241, 232, 0.72);
+      text-shadow: none;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 1.4rem 0 0;
+      color: #d9ddd2;
+      font-size: clamp(1.15rem, 2.3vw, 1.55rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--ink);
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .signal-board {
+      border-left: 1px solid var(--line);
+      padding-left: clamp(1rem, 3vw, 2rem);
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .signal {
+      padding: 1.05rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .signal strong {
+      display: block;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      line-height: 1;
+      color: var(--paper);
+    }
+
+    .signal span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      border-top: 1px solid rgba(246, 241, 232, 0.1);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.6fr) minmax(280px, 0.4fr);
+      gap: clamp(1.4rem, 4vw, 3rem);
+      align-items: end;
+      margin-bottom: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .section-kicker {
+      color: var(--cyan);
+      font-size: 0.86rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-top: 0.55rem;
+      font-size: clamp(2.4rem, 6vw, 5.8rem);
+      text-wrap: balance;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .capability {
+      min-height: 250px;
+      padding: clamp(1.2rem, 3vw, 2rem);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+        var(--panel);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .capability::after {
+      content: attr(data-index);
+      position: absolute;
+      right: 1.1rem;
+      bottom: -0.7rem;
+      color: rgba(246, 241, 232, 0.06);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 6rem;
+      line-height: 1;
+    }
+
+    .capability h3 {
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+    }
+
+    .capability p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 0.72rem;
+      border: 1px solid rgba(246, 241, 232, 0.14);
+      border-radius: 999px;
+      color: #e7ecdf;
+      background: rgba(255, 255, 255, 0.045);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .tag.hot {
+      color: #101814;
+      border-color: transparent;
+      background: var(--amber);
+    }
+
+    .project-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .project {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(210px, 0.34fr) minmax(0, 0.66fr);
+      gap: clamp(1rem, 3vw, 2rem);
+      padding: clamp(1.1rem, 3vw, 1.7rem);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.018)),
+        rgba(16, 28, 24, 0.78);
+      box-shadow: 0 16px 54px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: var(--accent, var(--cyan));
+    }
+
+    .project:hover {
+      transform: translateX(6px);
+      border-color: rgba(246, 241, 232, 0.3);
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.026)),
+        rgba(16, 28, 24, 0.9);
+    }
+
+    .project-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.96rem;
+    }
+
+    .project-meta span:first-child {
+      color: var(--accent, var(--cyan));
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 0;
+    }
+
+    .project h3 {
+      font-size: clamp(1.6rem, 3.2vw, 2.8rem);
+      max-width: 780px;
+    }
+
+    .project p {
+      margin: 0.9rem 0 0;
+      color: #ccd4c9;
+      font-size: 1.08rem;
+    }
+
+    .project .tag-cloud {
+      margin-top: 1.15rem;
+    }
+
+    .stats-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.48fr) minmax(0, 0.52fr);
+      gap: clamp(1.2rem, 4vw, 2rem);
+      align-items: stretch;
+    }
+
+    .profile-panel {
+      padding: clamp(1.2rem, 3vw, 2rem);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018)),
+        var(--panel-2);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-media {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      border: 2px solid rgba(191, 242, 82, 0.6);
+      background: #13231e;
+      box-shadow: 0 0 0 8px rgba(191, 242, 82, 0.06);
+      object-fit: cover;
+    }
+
+    .profile-panel h3 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+    }
+
+    .profile-panel p {
+      margin: 1.15rem 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-link {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0 0.95rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.045);
+      font-weight: 800;
+      transition: background 180ms ease, transform 180ms ease;
+    }
+
+    .contact-link:hover {
+      background: rgba(255, 255, 255, 0.09);
+      transform: translateY(-2px);
+    }
+
+    .github-stats {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .stat-image {
+      width: 100%;
+      min-height: 170px;
+      border: 1px solid var(--line);
+      background: rgba(16, 28, 24, 0.72);
+      box-shadow: var(--shadow);
+      object-fit: cover;
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-weight: 700;
+    }
+
+    @keyframes portraitFloat {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) rotate(-2deg);
+      }
+      50% {
+        transform: translate3d(-18px, 14px, 0) rotate(2deg);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        min-height: auto;
+        padding: 0.85rem 0;
+        align-items: stretch;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero::before {
+        inset: 8% -26% auto auto;
+        width: 78vw;
+        opacity: 0.28;
+      }
+
+      .hero-grid,
+      .section-heading,
+      .stats-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .signal-board {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        padding-left: 0;
+        padding-top: 1rem;
+      }
+
+      .signal {
+        border-bottom: 0;
+      }
+
+      .capability-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .site-shell {
+        width: min(100% - 26px, 1160px);
+      }
+
+      .brand span:last-child {
+        max-width: 140px;
+      }
+
+      .nav-cta {
+        min-width: 44px;
+        width: 44px;
+        padding: 0;
+      }
+
+      .nav-cta span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+
+      h1 {
+        font-size: clamp(3.6rem, 20vw, 6.2rem);
+      }
+
+      .hero-copy {
+        font-size: 1.1rem;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .signal-board {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-media {
+        grid-template-columns: 1fr;
+      }
+
+      .avatar {
+        width: 76px;
+        height: 76px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="topbar">
+    <nav class="nav site-shell" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Pakorn home">
+        <span class="brand-mark" aria-hidden="true">PK</span>
+        <span>Pakorn269</span>
+      </a>
+      <div class="nav-links" aria-label="Page sections">
+        <a href="#stack">Stack</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="mailto:pakorn269@gmail.com">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+          <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span>Contact</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="content">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="site-shell hero-grid">
+        <div>
+          <div class="eyebrow">Bangkok, Thailand</div>
+          <h1 id="hero-title">Pakorn <span class="hero-title-accent">Systems builder</span></h1>
+          <p class="hero-copy">
+            IT System Administrator and Software Developer managing enterprise infrastructure for 30,000+ users, then turning the hard parts into internal tools with ASP.NET Core, Blazor, React, TypeScript, and practical AI workflows.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#projects">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              View projects
+            </a>
+            <a class="button secondary" href="https://github.com/pakorn269" target="_blank" rel="noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2.15c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.04 1.76 2.72 1.25 3.38.96.11-.75.41-1.25.74-1.54-2.57-.29-5.27-1.29-5.27-5.72 0-1.26.45-2.3 1.2-3.11-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.19a10.98 10.98 0 0 1 5.8 0c2.2-1.5 3.17-1.19 3.17-1.19.63 1.6.23 2.78.11 3.07.75.81 1.2 1.85 1.2 3.11 0 4.45-2.71 5.42-5.29 5.71.42.36.79 1.07.79 2.16v3.15c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"></path>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="signal-board" aria-label="Profile highlights">
+          <div class="signal">
+            <strong>30,000+</strong>
+            <span>enterprise users supported</span>
+          </div>
+          <div class="signal">
+            <strong>.NET + JS</strong>
+            <span>internal tooling and web products</span>
+          </div>
+          <div class="signal">
+            <strong>AI-aided</strong>
+            <span>faster debugging, delivery, and iteration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" aria-labelledby="stack-title">
+      <div class="site-shell">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">What I work with</div>
+            <h2 id="stack-title">Infrastructure nerves, product instincts.</h2>
+          </div>
+          <p>
+            A practical mix of Windows enterprise administration, observability, internal application development, and modern web delivery.
+          </p>
+        </div>
+
+        <div class="capability-grid">
+          <article class="capability" data-index="01">
+            <div>
+              <h3>Infrastructure & systems</h3>
+              <p>Domain operations, endpoint management, monitoring, reporting, and the repeatable work that keeps large environments healthy.</p>
+            </div>
+            <div class="tag-cloud" aria-label="Infrastructure skills">
+              <span class="tag hot">Active Directory</span>
+              <span class="tag">SCCM</span>
+              <span class="tag">Windows Server</span>
+              <span class="tag">Zabbix</span>
+              <span class="tag">Power BI</span>
+            </div>
+          </article>
+
+          <article class="capability" data-index="02">
+            <div>
+              <h3>Software development</h3>
+              <p>Enterprise web tooling, real-time dashboards, APIs, database-backed applications, and interfaces designed for repeated daily use.</p>
+            </div>
+            <div class="tag-cloud" aria-label="Development skills">
+              <span class="tag hot">ASP.NET Core</span>
+              <span class="tag">Blazor</span>
+              <span class="tag">C#</span>
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">SignalR</span>
+            </div>
+          </article>
+
+          <article class="capability" data-index="03">
+            <div>
+              <h3>AI-assisted delivery</h3>
+              <p>Using AI as a serious engineering partner for code generation, debugging, refactoring, documentation, and exploratory build loops.</p>
+            </div>
+            <div class="tag-cloud" aria-label="AI-assisted development tools">
+              <span class="tag hot">Cursor</span>
+              <span class="tag">GitHub Copilot</span>
+              <span class="tag">Claude</span>
+              <span class="tag">PowerShell</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="site-shell">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Featured projects</div>
+            <h2 id="projects-title">Tools shaped by real operations work.</h2>
+          </div>
+          <p>
+            These projects sit close to infrastructure, identity, monitoring, and service workflows: software built from the problems that show up at scale.
+          </p>
+        </div>
+
+        <div class="project-list">
+          <article class="project" style="--accent: var(--cyan);">
+            <div class="project-meta">
+              <span>Enterprise inventory</span>
+              <span>ASP.NET Core 8 / Blazor Server / SignalR / SQLite / WMI</span>
+            </div>
+            <div>
+              <h3>HardwareInfoWeb</h3>
+              <p>A distributed hardware inventory platform where Windows agents collect local WMI data, report to a central REST API, and receive real-time collection commands through SignalR.</p>
+              <div class="tag-cloud">
+                <span class="tag">MudBlazor</span>
+                <span class="tag">Worker Service</span>
+                <span class="tag">Agent health</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project" style="--accent: var(--lime);">
+            <div class="project-meta">
+              <span>Identity operations</span>
+              <span>ASP.NET / C# / Active Directory LDAP</span>
+            </div>
+            <div>
+              <h3>ADManager & AD Access Control Portal</h3>
+              <p>Internal web tools for account management, unlocking, password resets, and department-based access delegation across a large Active Directory environment.</p>
+              <div class="tag-cloud">
+                <span class="tag">Delegation</span>
+                <span class="tag">Help desk relief</span>
+                <span class="tag">LDAP</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project" style="--accent: var(--amber);">
+            <div class="project-meta">
+              <span>Monitoring</span>
+              <span>Network monitoring / ITSM integration</span>
+            </div>
+            <div>
+              <h3>Ping / ITSM Monitoring Dashboard</h3>
+              <p>A real-time endpoint and server connectivity dashboard tied into ITSM workflows for alert triage, incident response, and distributed infrastructure visibility.</p>
+              <div class="tag-cloud">
+                <span class="tag">Realtime status</span>
+                <span class="tag">Incident triage</span>
+                <span class="tag">Operations</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project" style="--accent: var(--tomato);">
+            <div class="project-meta">
+              <span>SaaS experiments</span>
+              <span>React / TypeScript / PostgreSQL / Python</span>
+            </div>
+            <div>
+              <h3>Security Guard HRM & ShopThai.work</h3>
+              <p>Product builds covering attendance, scheduling, access control, appointment booking, queue management, and customer records, including a live barber shop management system.</p>
+              <div class="tag-cloud">
+                <span class="tag">React</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Production deployment</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="site-shell">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">GitHub & contact</div>
+            <h2 id="contact-title">Building where systems meet software.</h2>
+          </div>
+          <p>
+            Open to conversations around infrastructure tooling, internal apps, .NET/Blazor systems, React products, and practical AI-assisted development.
+          </p>
+        </div>
+
+        <div class="stats-layout">
+          <aside class="profile-panel" aria-label="Profile summary">
+            <div class="profile-media">
+              <img class="avatar" src="https://github.com/pakorn269.png" alt="Pakorn GitHub avatar" width="168" height="168">
+              <div>
+                <div class="section-kicker">Pakorn269</div>
+                <h3>IT by day. Software by night.</h3>
+              </div>
+            </div>
+            <p>
+              Based in Bangkok, Thailand, focused on making enterprise administration less repetitive and software systems more useful to the people running them.
+            </p>
+            <div class="contact-row">
+              <a class="contact-link" href="https://www.linkedin.com/in/pakorn269" target="_blank" rel="noreferrer">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5ZM.32 8h4.36v14H.32V8Zm7 0h4.18v1.91h.06c.58-1.1 2-2.26 4.13-2.26 4.42 0 5.24 2.91 5.24 6.7V22h-4.36v-6.79c0-1.62-.03-3.7-2.25-3.7-2.26 0-2.61 1.76-2.61 3.58V22H7.32V8Z"></path>
+                </svg>
+                LinkedIn
+              </a>
+              <a class="contact-link" href="mailto:pakorn269@gmail.com">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                  <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                Email
+              </a>
+              <a class="contact-link" href="https://shopthai.work" target="_blank" rel="noreferrer">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 17 17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                  <path d="M8 7h9v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                ShopThai.work
+              </a>
+            </div>
+          </aside>
+
+          <div class="github-stats" aria-label="GitHub statistics">
+            <img class="stat-image" src="https://github-readme-stats.vercel.app/api?username=pakorn269&show_icons=true&theme=tokyonight&hide_border=true" alt="Pakorn GitHub contribution statistics" loading="lazy">
+            <img class="stat-image" src="https://github-readme-stats.vercel.app/api/top-langs/?username=pakorn269&layout=compact&theme=tokyonight&hide_border=true" alt="Pakorn top GitHub languages" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="site-shell footer-inner">
+      <span>&copy; <span id="year">2026</span> Pakorn269</span>
+      <span>Enterprise infrastructure, internal tools, and web products.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
