@@ -59,10 +59,15 @@ Real-time dashboard for endpoint and server connectivity monitoring across PEA's
 
 ---
 
-### 👥 Security Guard HRM SaaS
-> React · TypeScript · PostgreSQL
+### 👥 Security Guard HRM SaaS — *Showcase-Ready*
+> React 19 · TypeScript · Express · PostgreSQL · Tailwind CSS v4 · LINE LIFF SDK · Vitest
 
-Full-featured HR management SaaS for security guard workforce operations — attendance, shift scheduling, and access control. Built to explore end-to-end SaaS architecture with a React/TypeScript frontend and PostgreSQL backend.
+An enterprise-grade HR Management (HRM) SaaS designed specifically for security guard workforce operations. Built with a robust, multi-tenant architecture and a mobile-first philosophy to address real-world operational challenges.
+
+*   **Premium Web UX/UI**: Implements modern design systems, fluid dark/light themes, glassmorphism aesthetics, responsive tables, and animated interactive dashboard analytics.
+*   **LINE LIFF Mobile Integration**: Tailored mobile-first portal for guards, supporting GPS-based clock-in/out, roster viewing, and direct leave request submission with camera-integrated document upload.
+*   **Comprehensive Leave System**: Features manager controls, live status filtering, employee leave balances, and adjustment logs with safety validation constraints.
+*   **Production-Ready Quality**: Covered by a comprehensive automated test suite of **172 unit and integration tests** (Vitest + Testing Library) verifying page routing, forms, data loading, error states, and responsive features with 100% success rate.
 
 ---
 
