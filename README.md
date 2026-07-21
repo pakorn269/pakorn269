@@ -59,7 +59,7 @@ Real-time dashboard for endpoint and server connectivity monitoring across PEA's
 
 ---
 
-### 👥 Security Guard HRM SaaS — *Showcase-Ready*
+### 👥 [Security Guard HRM SaaS](https://github.com/pakorn269/Security-Guard-HRM-SaaS) — *Showcase-Ready*
 > React 19 · TypeScript · Express · PostgreSQL · Tailwind CSS v4 · LINE LIFF SDK · Vitest
 
 An enterprise-grade HR Management (HRM) SaaS designed specifically for security guard workforce operations. Built with a robust, multi-tenant architecture and a mobile-first philosophy to address real-world operational challenges.
