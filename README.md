@@ -71,6 +71,17 @@ An enterprise-grade HR Management (HRM) SaaS designed specifically for security 
 
 ---
 
+### 🌐 [Open Status Page](https://github.com/pakorn269/open-status-page) — *Live at [open-status-page.sinon-7cf.workers.dev](https://open-status-page.sinon-7cf.workers.dev)*
+> React 19 · TypeScript · Vite · Supabase · Cloudflare Workers · Tailwind CSS v4 · Telegram Bot API
+
+An open-source, community-run status and health monitor for **[gateway.9arm.co](https://gateway.9arm.co)** (Anthropic-compatible API gateway), providing real-time multi-endpoint availability checks, automated incident lifecycle tracking, and instant alerts.
+
+*   **Multi-Endpoint Health Monitoring**: Concurrently probes API gateway HTTP endpoints and AI model inference pipelines (`qwen3.8-27b-fp8`, `deepseek-v4-flash-0731`) with 288-interval granular check grids and continuous latency sparklines.
+*   **Automated Incident Detection & Telegram Alerts**: Instant outage and latency notifications broadcasted to the community via Telegram ([@gateway9armstatus](https://t.me/gateway9armstatus)) powered by `@th9arm_bot`.
+*   **Full Incident Management & Diagnostics**: Built-in Admin Portal (`/admin`) for incident lifecycle workflows, click-to-copy diagnostic JSON, and quarterly uptime history navigation.
+
+---
+
 ### ✂️ Barber Shop Management System — *Live at [ShopThai.work](https://shopthai.work)*
 > React · TypeScript · PostgreSQL · Python
 
