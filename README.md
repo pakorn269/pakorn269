@@ -38,6 +38,18 @@ I manage enterprise IT infrastructure for 30,000+ users at the Provincial Electr
 
 ## 🚀 Featured Projects
 
+### 🛡️ [Reviewline](https://github.com/pakorn269/reviewline-webmcp) — *Live at [GitHub Pages](https://pakorn269.github.io/reviewline-webmcp/)*
+> WebMCP · React · TypeScript · Vite · Playwright · GitHub Actions · GitHub Pages
+
+A WebMCP-native incident review studio built around a least-authority collaboration model: **agents investigate, humans authorize**. A browser agent can inspect synthetic autonomous-agent failures, replay candidate guardrails against triggering and benign cases, and draft an evidence-backed review gate—but approval, rejection, activation, and deployment are deliberately excluded from the agent tool surface.
+
+* **State-aware WebMCP tools**: Dynamically exposes and retires investigation, simulation, drafting, and status capabilities as the workflow advances, with strict runtime validation and bounded results.
+* **Shared human–agent evidence**: Tool calls update the same visible incident, replay, proposal, capability manifest, and append-only session timeline seen by the reviewer.
+* **Verified native journey**: Tested with native Chrome 152 WebMCP, 303 unit/component/integration tests, 33 lifecycle/workflow/build tests, and 13 Playwright end-to-end tests.
+* **Public demo**: [Launch Reviewline](https://pakorn269.github.io/reviewline-webmcp/) · [Watch the demo](https://youtu.be/eLkJEfHuumw)
+
+---
+
 ### 🖥️ HardwareInfoWeb — Enterprise Hardware Inventory System
 > ASP.NET Core 8 · Blazor Server · SignalR · SQLite · WMI · MudBlazor · .NET Worker Service
 
